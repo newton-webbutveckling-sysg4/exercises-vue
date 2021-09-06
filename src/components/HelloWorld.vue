@@ -8,6 +8,13 @@
 			<button v-on:click="decreaseCounter"> Minska värdet </button>
 			<button v-on:click="resetCounter"> Återställ </button>
 		</section>
+
+		<section>
+			<h2> Övning 3 </h2>
+			<button v-on:click="toggleText"> {{ textIsVisible ? 'Göm' : 'Visa' }} texten </button>
+			<span v-show="textIsVisible"> Now you see me </span>
+			<span v-show="!textIsVisible"> Now you don't </span>
+		</section>
 	</div>
 </template>
 
@@ -15,9 +22,13 @@
 export default {
 	name: 'HelloWorld',
 	data: () => ({
+		textIsVisible: true,
 		counter: 10
 	}), // data
 	methods: {
+		toggleText() {
+			this.textIsVisible = !this.textIsVisible
+		},
 		increaseCounter() {
 			this.counter += 1
 		},
